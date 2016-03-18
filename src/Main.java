@@ -32,8 +32,16 @@ public class Main {
         myFootballTeam.matchResult(secondFootballTeam, 4, 3);
         myFootballTeam.matchResult(thirdFootballTeam, 1, 1);
         myFootballTeam.matchResult(secondFootballTeam, 1, 2);
+        secondFootballTeam.matchResult(thirdFootballTeam, 2, 3);
+        secondFootballTeam.matchResult(myFootballTeam, 2, 3);
+        thirdFootballTeam.matchResult(secondFootballTeam, 3, 3);
 
-        System.out.println("Ranking : " + myFootballTeam.ranking());
+        System.out.println("Ranking " + myFootballTeam.getName() + " : " + myFootballTeam.ranking());
+        System.out.println("Ranking " + secondFootballTeam.getName() + " : " + secondFootballTeam.ranking());
+        System.out.println("Ranking " + thirdFootballTeam.getName() + " : " + thirdFootballTeam.ranking());
+
+        // Compare team
+        System.out.println(myFootballTeam.compareTo(secondFootballTeam));
     }
 
 }
