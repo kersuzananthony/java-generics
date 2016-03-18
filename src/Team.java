@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * Created by kersuzan on 18/03/16.
  */
 
-public class Team {
+public class Team<T extends Player> {
 
     private String name;
     int played = 0;
@@ -12,7 +12,7 @@ public class Team {
     int lost = 0;
     int tied = 0;
 
-    private ArrayList<Player> members = new ArrayList<>();
+    private ArrayList<T> members = new ArrayList<>();
 
     public Team(String name) {
         this.name = name;
@@ -22,7 +22,7 @@ public class Team {
         return name;
     }
 
-    public boolean addPlayer(Player player) {
+    public boolean addPlayer(T player) {
         if (members.contains(player)) {
             System.out.println(player.getName() + " is already ont this team!");
             return false;
@@ -37,13 +37,16 @@ public class Team {
         return this.members.size();
     }
 
-    public void matchResult(Team opponent, int ourScore, int theirScore) {
+    public void matchResult(Team<T> opponent, int ourScore, int theirScore) {
         if (ourScore > theirScore) {
             won++;
+            System.out.println(this.name + " won the match!");
         } else if (ourScore < theirScore) {
             lost++;
+            System.out.println(this.name + " lost the match!");
         } else {
             tied++;
+            System.out.println(this.name + " neither won nor lost");
         }
         played++;
 
