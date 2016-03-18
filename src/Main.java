@@ -42,6 +42,13 @@ public class Main {
 
         // Compare team
         System.out.println(myFootballTeam.compareTo(secondFootballTeam));
+
+        // League
+        League<Team<FootballPlayer>> footballLeague = new League<>("Football league");
+        footballLeague.addTeam(myFootballTeam);
+        footballLeague.addTeam(secondFootballTeam);
+        footballLeague.addTeam(thirdFootballTeam);
+        footballLeague.getLeagueClassment();
     }
 
 }
